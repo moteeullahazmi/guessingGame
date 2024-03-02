@@ -6,17 +6,16 @@ let guess = document.getElementById("guesses");
 let answer = Math.floor(Math.random() * 100 + 1);
 
 let numGuesses = 0;
-
 btn.addEventListener("click", () => {
     guessNumber();
 });
 
 function guessNumber() {
-    if (input.value < 1 || input.value > 100 || isNaN(parseInt(input.value))) {
-        wrng.innerHTML = "Enter a number between 1 to 100";
-    } else {
+    if (input.value < 1 || input.value > 100 || isNaN(input.value)) 
+        wrng.innerText = "Enter a number between 1 to 100";
+     else {
         numGuesses++;
-        guess.innerHTML = "No. of Guesses: " + numGuesses;
+        guess.innerText = "No. of Guesses: " + numGuesses;
         let userGuess = parseInt(input.value); // Convert input value to an integer
         if (userGuess > answer) {
             wrng.innerHTML = "You guessed too High";
@@ -40,5 +39,6 @@ function resetGame() {
     answer = Math.floor(Math.random() * 100 + 1);
     input.value = "";
     btn.disabled = false;
-    guess.innerHTML = "No. of Guesses: 0";
+    guess.innerText = "No. of Guesses: 0"; // Use innerText instead of innerHTML
 }
+
